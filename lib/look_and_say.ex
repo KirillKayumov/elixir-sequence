@@ -31,14 +31,14 @@ defmodule LookAndSay do
   end
 
   def next([head | tail]) do
-    next(1, head, tail)
+    count(1, head, tail)
   end
 
-  def next(count, char, [char | tail]) do
-    next(count + 1, char, tail)
+  defp count(n, char, [char | tail]) do
+    count(n + 1, char, tail)
   end
 
-  def next(count, char, [head | tail]) do
-    [count, char] ++ next([head | tail])
+  defp count(n, char, [head | tail]) do
+    [n, char] ++ next([head | tail])
   end
 end
